@@ -8,7 +8,7 @@ package com.jasmine.common.model;
  */
 public class BaseResult<T> {
 
-    private Boolean success;
+    private boolean success;
 
     private String resultCode;
 
@@ -16,6 +16,21 @@ public class BaseResult<T> {
 
     private T data;
 
+    /**
+     * 私有无参构造函数
+     */
+    private BaseResult() {
+
+    }
+
+    /**
+     * 私有全参构造函数
+     *
+     * @param success
+     * @param resultCode
+     * @param resultMsg
+     * @param data
+     */
     private BaseResult(Boolean success, String resultCode, String resultMsg, T data) {
         this.success = success;
         this.resultCode = resultCode;
@@ -37,6 +52,50 @@ public class BaseResult<T> {
                                        String message, T data) {
         return new BaseResult(success, errorCode.getCode(),
                 message == null || message.length() == 0 ? errorCode.getMessage() : message, data);
+    }
+
+    public static BaseResult build(BaseResult result) {
+        if (result == null) {
+            return null;
+        }
+        BaseResult newResult = new BaseResult();
+        newResult.setData(result.getData());
+        newResult.setResultCode(result.getResultCode());
+        newResult.setResultMsg(result.getResultMsg());
+        newResult.setSuccess(result.isSuccess());
+        return newResult;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public String getResultCode() {
+        return resultCode;
+    }
+
+    public void setResultCode(String resultCode) {
+        this.resultCode = resultCode;
+    }
+
+    public String getResultMsg() {
+        return resultMsg;
+    }
+
+    public void setResultMsg(String resultMsg) {
+        this.resultMsg = resultMsg;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 
 }
