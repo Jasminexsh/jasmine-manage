@@ -27,4 +27,12 @@ public interface FileService {
      */
     Boolean upload(File file, String destDir);
 
+    /**
+     * 下载文件到默认目录
+     *
+     * @param file 文件
+     * @return
+     */
+    Boolean download(File file);
+
 }
