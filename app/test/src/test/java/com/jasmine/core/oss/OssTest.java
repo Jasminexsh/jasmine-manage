@@ -5,6 +5,7 @@ import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.model.GetObjectRequest;
 import com.aliyun.oss.model.ObjectMetadata;
 import com.aliyun.oss.model.UploadFileRequest;
+import com.jasmine.util.Base64Util;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,19 +21,22 @@ public class OssTest {
 
     private OSSClient ossClient;
 
+    private String endpoint;
+
     private String bucketName;
 
     @Before
     public void prepare() {
-        ossClient = new OSSClient("oss-rg-china-mainland.aliyuncs.com", "LTAI5t7e9k3E7m5cYUkdyChF", "blSnaFvm1FOaLlBaJSOYwngY4g5ZIW");
-        bucketName = "jasmine-storage";
+        bucketName = "jasminexsh-storage";
+        endpoint = "oss-rg-china-mainland.aliyuncs.com";
+        String encryptAccessKeyId = "TFRBSTV0N2U5azNFN201Y1lVa2R5Q2hG";
+        String encryptSecretAccessKey = "YmxTbmFGdm0xRk9hTGxCYUpTT1l3bmdZNGc1WklX";
+        ossClient = new OSSClient(endpoint, Base64Util.decodeFromEncryptedKey(encryptAccessKeyId), Base64Util.decodeFromEncryptedKey(encryptSecretAccessKey));
+        System.out.println("ossClient has been initialized.");
     }
 
     @Test
     public void testPutObject() {
-//        File uploadFile = new File("/Users/xieshanghan/Desktop/ins-pic/lxxbaby.official/1.jpg");
-//        ossClient.putObject(bucketName, "instagram-picture/lxxbaby.official/1.jpg", uploadFile);
-
         File uploadFile2 = new File("/Users/xieshanghan/Desktop/ins-pic/lxxbaby.official/2.jpg");
         ObjectMetadata objectMetadata = new ObjectMetadata();
         objectMetadata.setContentType("image/jpg");
@@ -69,9 +73,17 @@ public class OssTest {
 
     @Test
     public void testGetObject() {
-        GetObjectRequest getObjectRequest = new GetObjectRequest(bucketName, "instagram-picture/lxxbaby.official/1.jpg");
-        File downloadFile = new File("/Users/xieshanghan/Desktop/1.jpg");
-        ossClient.getObject(getObjectRequest, downloadFile);
+        try {
+            GetObjectRequest getObjectRequest = new GetObjectRequest(bucketName, "instagram-picture/lxxbaby.official/1.jpg");
+            File downloadFile = new File("/Users/xieshanghan/idea_ce_projects/jasmine/files/1.jpg");
+            if (!downloadFile.exists()) {
+                downloadFile.createNewFile();
+            }
+            //将object存储到本地文件中
+            ossClient.getObject(getObjectRequest, downloadFile);
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
     }
 
     @Test

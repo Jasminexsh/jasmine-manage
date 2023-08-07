@@ -35,6 +35,11 @@
             <groupId>com.jasmine</groupId>
             <artifactId>jasmine-core</artifactId>
         </dependency>
+        <!-- jasmine util -->
+        <dependency>
+            <groupId>com.jasmine</groupId>
+            <artifactId>jasmine-util</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
