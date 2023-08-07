@@ -3,8 +3,10 @@ package com.jasmine.core.oss;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.jasmine.service.OssFileManageService;
+import com.jasmine.util.Base64Util;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.util.Base64Utils;
 
 /**
  * @author xieshanghan
@@ -17,14 +19,14 @@ public class OssFileManageServiceImpl implements OssFileManageService, Initializ
     @Value("{oss_endpoint}")
     private String endPoint;
 
-    @Value("${}")
+    @Value("${oss_bucket_name}")
     private String bucketName;
 
-    @Value("${}")
-    private String accessKeyId;
+    @Value("${oss_encrypted_access_key_id}")
+    private String encryptedAccessKeyId;
 
-    @Value("${}")
-    private String secretAccessKey;
+    @Value("${oss_encrypted_secret_access_key}")
+    private String encryptedSecretAccessKey;
 
     @Override
     public Boolean uploadImage(String path, byte[] image) {
@@ -34,7 +36,7 @@ public class OssFileManageServiceImpl implements OssFileManageService, Initializ
     @Override
     public void afterPropertiesSet() throws Exception {
         //Bean注册时实例化ossClient
-        ossClient = new OSSClientBuilder().build(endPoint, accessKeyId, secretAccessKey);
+        ossClient = new OSSClientBuilder().build(endPoint, Base64Util.decodeFromEncryptedKey(encryptedAccessKeyId), Base64Util.decodeFromEncryptedKey(encryptedSecretAccessKey));
     }
 
 }

@@ -40,6 +40,10 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.jasmine</groupId>
+            <artifactId>jasmine-util</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

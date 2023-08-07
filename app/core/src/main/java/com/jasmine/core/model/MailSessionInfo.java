@@ -1,4 +1,4 @@
-package com.jasmine.core.mail.model;
+package com.jasmine.core.model;
 
 /**
  * 邮件会话信息

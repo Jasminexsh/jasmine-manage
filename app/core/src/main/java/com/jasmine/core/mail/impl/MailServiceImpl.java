@@ -1,8 +1,8 @@
 package com.jasmine.core.mail.impl;
 
 import com.jasmine.core.mail.MailService;
-import com.jasmine.core.mail.model.MailInfo;
-import com.jasmine.core.mail.model.MailSessionInfo;
+import com.jasmine.core.model.MailInfo;
+import com.jasmine.core.model.MailSessionInfo;
 
 /**
  * @author xieshanghan
@@ -11,8 +11,8 @@ import com.jasmine.core.mail.model.MailSessionInfo;
 public class MailServiceImpl implements MailService {
 
     @Override
-    public void sendEmail(MailSessionInfo sender, MailSessionInfo receiver, MailInfo mailInfo) {
-
+    public boolean sendEmail(MailSessionInfo sender, MailSessionInfo receiver, MailInfo mailInfo) {
+        return false;
     }
 
 }

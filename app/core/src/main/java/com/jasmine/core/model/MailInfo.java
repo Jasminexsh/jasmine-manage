@@ -1,4 +1,4 @@
-package com.jasmine.core.mail.model;
+package com.jasmine.core.model;
 
 import java.util.Date;
 
