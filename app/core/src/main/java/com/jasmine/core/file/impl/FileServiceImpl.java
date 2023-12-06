@@ -22,4 +22,9 @@ public class FileServiceImpl implements FileService {
         return null;
     }
 
+    @Override
+    public Boolean download(File file) {
+        return null;
+    }
+
 }
