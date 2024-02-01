@@ -118,7 +118,7 @@ public class FileUtil {
         try {
             file.createNewFile();
         } catch (Exception e) {
-            LogUtil.error(LOGGER, "createNewFile failed");
+            LoggerUtil.error(LOGGER, "createNewFile failed", e);
         }
     }
 
@@ -145,7 +145,7 @@ public class FileUtil {
         try {
             file.createNewFile();
         } catch (Exception e) {
-            LogUtil.error(LOGGER, "createNewFile failed");
+            LoggerUtil.error(LOGGER, "createNewFile failed", e);
         }
     }
 
@@ -198,13 +198,13 @@ public class FileUtil {
             bufferedWriter.write(data);
             bufferedWriter.flush();
         } catch (Exception e) {
-            LogUtil.error(LOGGER, "write file data error, file name: " + file.getName() + ", data: " + data, e);
+            LoggerUtil.error(LOGGER, "write file data error, file name: " + file.getName() + ", data: " + data, e);
         } finally {
             try {
                 bufferedWriter.close();
                 fileWriter.close();
             } catch (IOException e) {
-                LogUtil.error(LOGGER, "close bufferdWriter error, file name: " + file.getName(), e);
+                LoggerUtil.error(LOGGER,"close bufferedWriter error, file name: " + file.getName(), e);
             }
         }
     }
@@ -295,10 +295,10 @@ public class FileUtil {
             }
             ((HttpURLConnection) urlConnection).disconnect();
             long end = System.currentTimeMillis();
-            LogUtil.info(LOGGER, "文件下载时长: " + (end - start) + "ms");
+            LoggerUtil.info(LOGGER, "文件下载时长: " + (end - start) + "ms");
             return true;
         } catch (Exception e) {
-            LogUtil.error(LOGGER, e.getMessage());
+            LoggerUtil.error(LOGGER, e.getMessage(), e);
             return false;
         } finally {
             try {
@@ -306,7 +306,7 @@ public class FileUtil {
                 outputStream.close();
                 return true;
             } catch (Exception e) {
-                LogUtil.error(LOGGER, e.getMessage());
+                LoggerUtil.error(LOGGER, e.getMessage(), e);
                 return false;
             }
         }

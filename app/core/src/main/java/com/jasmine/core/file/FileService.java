@@ -30,9 +30,9 @@ public interface FileService {
     /**
      * 下载文件到默认目录
      *
-     * @param file 文件
+     * @param downloadUrl 文件下载url
      * @return
      */
-    Boolean download(File file);
+    Boolean download(String downloadUrl);
 
 }

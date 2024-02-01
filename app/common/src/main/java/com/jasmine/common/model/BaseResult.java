@@ -54,6 +54,12 @@ public class BaseResult<T> {
                 message == null || message.length() == 0 ? errorCode.getMessage() : message, data);
     }
 
+    /**
+     *
+     *
+     * @param result
+     * @return
+     */
     public static BaseResult build(BaseResult result) {
         if (result == null) {
             return null;

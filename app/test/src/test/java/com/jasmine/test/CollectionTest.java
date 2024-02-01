@@ -1,5 +1,9 @@
 package com.jasmine.test;
 
+import com.jasmine.mng.talent.TalentInfoMngService;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,6 +12,7 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Date;
+import java.util.Objects;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executors;
@@ -19,6 +24,17 @@ import java.util.concurrent.TimeUnit;
  * @version CollectionTest.java, v 0.1 2023年06月07日 16:05 xieshanghan
  */
 public class CollectionTest {
+
+    @Autowired
+    private TalentInfoMngService talentInfoMngService;
+
+    @Test
+    public void test() {
+        Object result = talentInfoMngService.query();
+        if (Objects.isNull(result)) {
+            System.out.println("result is null");
+        }
+    }
 
 
     public static void main(String[] args) {

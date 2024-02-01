@@ -11,6 +11,7 @@
     </parent>
 
     <artifactId>jasmine-test</artifactId>
+    <version>${jasmine.version}</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -39,6 +40,11 @@
         <dependency>
             <groupId>com.jasmine</groupId>
             <artifactId>jasmine-util</artifactId>
+        </dependency>
+        <!-- jasmine mng -->
+        <dependency>
+            <groupId>com.jasmine</groupId>
+            <artifactId>jasmine-mng</artifactId>
         </dependency>
     </dependencies>
 

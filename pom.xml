@@ -10,15 +10,14 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>app/core</module>
-        <module>app/common</module>
-        <module>app/util</module>
-        <module>app/test</module>
         <module>app/bootstrap</module>
-        <module>app/service</module>
-        <module>app/base</module>
+        <module>app/common</module>
+        <module>app/core</module>
         <module>app/dal</module>
         <module>app/mng</module>
+        <module>app/service</module>
+        <module>app/test</module>
+        <module>app/util</module>
         <module>app/web</module>
     </modules>
 
@@ -26,19 +25,21 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jasmine.version>0.0.1-SNAPSHOT</jasmine.version>
+        <jasmine.version>1.0.0.20240201-SNAPSHOT</jasmine.version>
+        <springboot.version>2.7.5</springboot.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- jasmine module start -->
             <dependency>
                 <groupId>com.jasmine</groupId>
-                <artifactId>jasmine-base</artifactId>
+                <artifactId>jasmine-common</artifactId>
                 <version>${jasmine.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.jasmine</groupId>
-                <artifactId>jasmine-common</artifactId>
+                <artifactId>jasmine-core</artifactId>
                 <version>${jasmine.version}</version>
             </dependency>
             <dependency>
@@ -49,11 +50,6 @@
             <dependency>
                 <groupId>com.jasmine</groupId>
                 <artifactId>jasmine-mng</artifactId>
-                <version>${jasmine.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.jasmine</groupId>
-                <artifactId>jasmine-core</artifactId>
                 <version>${jasmine.version}</version>
             </dependency>
             <dependency>
@@ -76,62 +72,86 @@
                 <artifactId>jasmine-web</artifactId>
                 <version>${jasmine.version}</version>
             </dependency>
+            <!-- jasmine module end -->
+
+            <!-- spring dependency start -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
-                <version>2.7.5</version>
+                <version>${springboot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
-                <version>2.7.5</version>
+                <version>${springboot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-configuration-processor</artifactId>
-                <version>2.7.5</version>
+                <version>${springboot.version}</version>
             </dependency>
+            <!-- spring dependency end -->
+
+            <!-- slf4j start -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>1.7.36</version>
             </dependency>
+            <!-- slf4j end -->
+
+            <!-- junit start -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.13.2</version>
             </dependency>
-            <!-- 阿里云OSS -->
+            <!-- junit end -->
+
+            <!-- aliyun oss sdk start -->
             <dependency>
                 <groupId>com.aliyun.oss</groupId>
                 <artifactId>aliyun-sdk-oss</artifactId>
                 <version>3.10.2</version>
             </dependency>
-            <!-- common httpclient -->
+            <!-- aliyun oss sdk end -->
+
+            <!-- common httpclient start -->
             <dependency>
                 <groupId>commons-httpclient</groupId>
                 <artifactId>commons-httpclient</artifactId>
                 <version>3.0</version>
             </dependency>
-            <!-- guava -->
+            <!-- common httpclient end -->
+
+            <!-- guava start -->
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>23.0</version>
             </dependency>
-            <!-- Rocket MQ SDK -->
-<!--            <dependency>-->
-<!--                <groupId>org.apache.rocketmq</groupId>-->
-<!--                <artifactId>rocketmq-client-java</artifactId>-->
-<!--                <version>5.0.5</version>-->
-<!--            </dependency>-->
-            <!-- Mockito -->
-<!--            <dependency>-->
-<!--                <groupId>org.mockito</groupId>-->
-<!--                <artifactId>mockito-all</artifactId>-->
-<!--                <version>1.10.5</version>-->
-<!--                <scope>test</scope>-->
-<!--            </dependency>-->
+            <!-- guava end -->
+
+            <!-- kryo start -->
+            <dependency>
+                <groupId>com.esotericsoftware.kryo</groupId>
+                <artifactId>kryo5</artifactId>
+                <version>5.3.0</version>
+            </dependency>
+            <!-- kryo end -->
+
+            <!-- hessian start -->
+            <dependency>
+                <groupId>com.caucho</groupId>
+                <artifactId>hessian</artifactId>
+                <version>4.0.66</version>
+            </dependency>
+            <!-- hessian end -->
         </dependencies>
     </dependencyManagement>
 

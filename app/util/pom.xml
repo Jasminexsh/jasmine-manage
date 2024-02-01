@@ -11,6 +11,7 @@
     </parent>
 
     <artifactId>jasmine-util</artifactId>
+    <version>${jasmine.version}</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -22,6 +23,14 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.esotericsoftware.kryo</groupId>
+            <artifactId>kryo5</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.caucho</groupId>
+            <artifactId>hessian</artifactId>
         </dependency>
     </dependencies>
 

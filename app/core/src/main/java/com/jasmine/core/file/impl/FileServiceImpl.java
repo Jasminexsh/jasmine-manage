@@ -1,6 +1,7 @@
 package com.jasmine.core.file.impl;
 
 import com.jasmine.core.file.FileService;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 
@@ -10,6 +11,7 @@ import java.io.File;
  * @author xieshanghan
  * @version FileServiceImpl.java, v 0.1 2023年06月04日 23:52 xieshanghan
  */
+@Service
 public class FileServiceImpl implements FileService {
 
     @Override
@@ -23,7 +25,7 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public Boolean download(File file) {
+    public Boolean download(String downloadUrl) {
         return null;
     }
 

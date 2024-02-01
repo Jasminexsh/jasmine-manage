@@ -11,6 +11,7 @@
     </parent>
 
     <artifactId>jasmine-service</artifactId>
+    <version>${jasmine.version}</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
