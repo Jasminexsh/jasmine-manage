@@ -118,7 +118,7 @@ public class FileUtil {
         try {
             file.createNewFile();
         } catch (Exception e) {
-            LoggerUtil.error(LOGGER, "createNewFile failed", e);
+            LoggerUtil.error(LOGGER, e, "");
         }
     }
 
@@ -145,7 +145,7 @@ public class FileUtil {
         try {
             file.createNewFile();
         } catch (Exception e) {
-            LoggerUtil.error(LOGGER, "createNewFile failed", e);
+            LoggerUtil.error(LOGGER, e, "");
         }
     }
 
@@ -198,13 +198,13 @@ public class FileUtil {
             bufferedWriter.write(data);
             bufferedWriter.flush();
         } catch (Exception e) {
-            LoggerUtil.error(LOGGER, "write file data error, file name: " + file.getName() + ", data: " + data, e);
+            LoggerUtil.error(LOGGER, e, "");
         } finally {
             try {
                 bufferedWriter.close();
                 fileWriter.close();
             } catch (IOException e) {
-                LoggerUtil.error(LOGGER,"close bufferedWriter error, file name: " + file.getName(), e);
+                LoggerUtil.error(LOGGER, e, "");
             }
         }
     }
@@ -298,7 +298,7 @@ public class FileUtil {
             LoggerUtil.info(LOGGER, "文件下载时长: " + (end - start) + "ms");
             return true;
         } catch (Exception e) {
-            LoggerUtil.error(LOGGER, e.getMessage(), e);
+            LoggerUtil.error(LOGGER, e, "");
             return false;
         } finally {
             try {
@@ -306,7 +306,7 @@ public class FileUtil {
                 outputStream.close();
                 return true;
             } catch (Exception e) {
-                LoggerUtil.error(LOGGER, e.getMessage(), e);
+                LoggerUtil.error(LOGGER, e, "");
                 return false;
             }
         }

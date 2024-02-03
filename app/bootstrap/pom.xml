@@ -27,6 +27,10 @@
             <groupId>com.jasmine</groupId>
             <artifactId>jasmine-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.jasmine</groupId>
+            <artifactId>jasmine-util</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

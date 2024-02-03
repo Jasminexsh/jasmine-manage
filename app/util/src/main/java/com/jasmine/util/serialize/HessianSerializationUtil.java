@@ -3,7 +3,6 @@ package com.jasmine.util.serialize;
 import com.caucho.hessian.io.Hessian2Input;
 import com.caucho.hessian.io.Hessian2Output;
 import com.jasmine.util.LoggerUtil;
-import com.sun.xml.internal.bind.v2.util.ByteArrayOutputStreamEx;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,6 +22,8 @@ public class HessianSerializationUtil {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             Hessian2Output hessian2Output = new Hessian2Output();
             hessian2Output.writeObject(obj);
+            hessian2Output.close();
+            hessian2Output.flush();
             return baos.toByteArray();
         } catch (Throwable th) {
             LoggerUtil.error(LOGGER, "");

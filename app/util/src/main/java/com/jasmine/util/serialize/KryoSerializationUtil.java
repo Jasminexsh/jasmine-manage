@@ -7,10 +7,7 @@ import com.jasmine.util.LoggerUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
 
 /**
  * @author xieshanghan
@@ -26,6 +23,20 @@ public class KryoSerializationUtil {
         singletonKryo = new Kryo();
         singletonKryo.setReferences(true);
         singletonKryo.setRegistrationRequired(false);
+    }
+
+    public static <T> byte[] writeObj(T obj) {
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            Output output = new Output(baos);
+
+            singletonKryo.writeObject(output, obj);
+            output.close();
+            output.flush();
+            return baos.toByteArray();
+        } catch (Exception e) {
+            throw new RuntimeException("Error serializing object", e);
+        }
     }
 
     public static <T> void writeFileObj(T obj) {
