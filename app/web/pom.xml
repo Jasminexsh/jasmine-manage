@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.jasmine</groupId>
-        <artifactId>jasmine-parent</artifactId>
+        <artifactId>jasmine-manage-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
@@ -23,6 +23,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jasmine</groupId>
+            <artifactId>jasmine-common</artifactId>
         </dependency>
     </dependencies>
 

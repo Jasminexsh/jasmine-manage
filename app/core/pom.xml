@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.jasmine</groupId>
-        <artifactId>jasmine-parent</artifactId>
+        <artifactId>jasmine-manage-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
@@ -44,6 +44,10 @@
         <dependency>
             <groupId>com.jasmine</groupId>
             <artifactId>jasmine-util</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 

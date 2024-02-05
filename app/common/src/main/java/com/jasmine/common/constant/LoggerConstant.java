@@ -6,7 +6,7 @@ package com.jasmine.common.constant;
  */
 public class LoggerConstant {
 
-    public static final String JASMINE_BOOTSTRAP = "jasmine-bootstrap";
+    public static final String JASMINE_BOOTSTRAP = "jasmine-manage-bootstrap";
 
     public static final String JASMINE_COMMON = "jasmine-common";
 

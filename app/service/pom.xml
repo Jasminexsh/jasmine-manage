@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.jasmine</groupId>
-        <artifactId>jasmine-parent</artifactId>
+        <artifactId>jasmine-manage-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
@@ -18,5 +18,21 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.jasmine</groupId>
+            <artifactId>jasmine-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jasmine</groupId>
+            <artifactId>jasmine-runtime-facade</artifactId>
+            <version>1.0.0.20240205-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

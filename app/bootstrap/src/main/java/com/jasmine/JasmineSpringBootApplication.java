@@ -21,6 +21,7 @@ public class JasmineSpringBootApplication {
 
     public static void main(String[] args) {
         try {
+            LoggerUtil.info(LOGGER, "JasmineSpringApplication try to start");
             SpringApplication.run(JasmineSpringBootApplication.class, args);
         } catch (Throwable th) {
             LoggerUtil.error(LOGGER, th, "start JasmineSpringBootApplication th");

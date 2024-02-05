@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+
+    <!-- Appenders -->
+    <Appenders>
+        <!-- Console Appender -->
+        <Console name="ConsoleMain" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <!-- File Appender -->
+        <File name="Jasmine-Bootstrap" fileName="logs/jasmine-manage-bootstrap.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
+
+    <!-- Loggers -->
+    <Loggers>
+        <!-- Logger for Main Package -->
+        <Logger name="com.jasmine" level="info" additivity="false">
+            <AppenderRef ref="ConsoleMain"/>
+            <AppenderRef ref="Jasmine-Bootstrap"/>
+        </Logger>
+
+        <!-- Root Logger -->
+        <Root level="error">
+            <AppenderRef ref="ConsoleMain"/>
+            <AppenderRef ref="Jasmine-Bootstrap"/>
+        </Root>
+    </Loggers>
+
+</Configuration>
